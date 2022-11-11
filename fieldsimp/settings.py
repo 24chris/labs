@@ -58,7 +58,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:3000",
     "http://localhost:3000",
-    "https://ictlabs.herokuapp.com"
+    "https://ictlabs.herokuapp.com",
+    "https://ictlabs-production.vercel.app"
 ]
 
 REST_FRAMEWORK = {
