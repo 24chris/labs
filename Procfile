@@ -1,1 +1,1 @@
-web: guincorn fieldsimp.wsgi --log-file -
+web: gunincorn fieldsimp.wsgi --log-file -
