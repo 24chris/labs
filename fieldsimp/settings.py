@@ -16,6 +16,9 @@ from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+import django_heroku
+import dj_database_url
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -26,7 +29,7 @@ SECRET_KEY = 'django-insecure-)qf+oy77r5fz!%@m86a!2o8s$yu7jt7ne5w79kljus4u_5_9#c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1',]
+ALLOWED_HOSTS = ['ictlabs.herokuapp.com','127.0.0.1',]
 
 
 # Application definition
@@ -43,7 +46,6 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
-    'djoser',
     'users',
     'course',
     'content',
@@ -56,6 +58,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://127.0.0.1:3000",
     "http://localhost:3000",
+    "https://ictlabs.herokuapp.com"
 ]
 
 REST_FRAMEWORK = {
@@ -157,15 +160,20 @@ WSGI_APPLICATION = 'fieldsimp.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ictlabs',
-        'USER':'postgres',
-        'PASSWORD':'24christopher',
-        'HOST':'localhost',
-        'PORT':'5432'
+    #  'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'ictlabs',
+    #     'USER':'postgres',
+    #     'PASSWORD':'24christopher',
+    #     'HOST':'localhost',
+    #     'PORT':'5432'
+    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 
 # Password validation
@@ -205,6 +213,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR/'media/'
+
+django_heroku.settings(locals())
 
 
 #Email settings
