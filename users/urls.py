@@ -15,7 +15,7 @@ urlpatterns = [
 
 
     #third-party reset
-    path('password-reset/',include('django_rest_passwordreset.urls',namespace='password_reset')),
+    # path('password-reset/',include('django_rest_passwordreset.urls',namespace='password_reset')),
     
     
 ]
