@@ -10,7 +10,7 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 import os
-from rave_python import Rave,RaveExceptions, Misc
+# from rave_python import Rave,RaveExceptions, Misc
 
 from .models import Invoice,Course
 # from course.models import Enrolled
@@ -114,8 +114,9 @@ class PaymentView(APIView):
     #     except RaveExceptions.CardChargeError as e:
     #         print(e.err["errMsg"])
     #         print(e.err["flwRef"])
+    
     def post(self,request,*args,**kwargs):
-        rave = Rave("FLWPUBK_TEST-0aef47dba99a60c07a74333e93bec52e-X","FLWSECK_TEST-f10ff869fc20a5dce1d0e77c068b17bb-X",usingEnv=False)
+        # rave = Rave("FLWPUBK_TEST-0aef47dba99a60c07a74333e93bec52e-X","FLWSECK_TEST-f10ff869fc20a5dce1d0e77c068b17bb-X",usingEnv=False)
         # Mobile Payload
         payload = {
             "amount":"500",
@@ -125,19 +126,19 @@ class PaymentView(APIView):
             "IP":"",
             "txtRef":"123456",
         }
-        try:
-            res = rave.UGMobile.charge(payload)
-            # res = rave.UGMobile.verify(res["txtRef"])
-            # res = rave.UGMobile.verify(res["123456"])
-            return Response(print(res))
+        # try:
+        #     res = rave.UGMobile.charge(payload)
+        #     # res = rave.UGMobile.verify(res["txtRef"])
+        #     # res = rave.UGMobile.verify(res["123456"])
+        #     return Response(print(res))
 
-        except RaveExceptions.TransactionChargeError as e:
-            print(e.err)
-            print(e.err["flwRef"])
+        # except RaveExceptions.TransactionChargeError as e:
+        #     print(e.err)
+        #     print(e.err["flwRef"])
 
-        except RaveExceptions.TransactionVerificationError as e:
-            print(e.err["errMsg"])
-            print(e.err["txtRef"])
+        # except RaveExceptions.TransactionVerificationError as e:
+        #     print(e.err["errMsg"])
+        #     print(e.err["txtRef"])
 
 
 
