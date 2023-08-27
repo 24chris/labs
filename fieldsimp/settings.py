@@ -164,8 +164,14 @@ WSGI_APPLICATION = 'fieldsimp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': BASE_DIR / 'db.sqlite3',
+        'DB_ENGINE': 'django.db.backends.postgresql',
+        'DB_NAME': 'fieldsimplified',
+        'DB_USER':'postgres',
+        'DB_PASSWORD':'24christopher',
+        'DB_HOST':'localhost',
+        'PORT':'5432'
     }
 }
 
