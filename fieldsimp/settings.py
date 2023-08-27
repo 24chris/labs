@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-)qf+oy77r5fz!%@m86a!2o8s$yu7jt7ne5w79kljus4u_5_9#c'
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -167,11 +168,11 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fieldsimplified',
+        'NAME': 'railway',
         'USER':'postgres',
-        'PASSWORD':'24christopher',
-        'HOST':'localhost',
-        'PORT':'5432'
+        'PASSWORD':'lI0PxlkCW9rkfPAUMvKs',
+        'HOST':'containers-us-west-189.railway.app',
+        'PORT':'6014'
     }
 }
 
