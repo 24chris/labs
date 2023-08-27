@@ -7,7 +7,7 @@ from django.dispatch import receiver
 from django.conf import settings
 #third-party password-reset
 from django.urls import reverse
-from django_rest_passwordreset.signals import reset_password_token_created
+# from django_rest_passwordreset.signals import reset_password_token_created
 from django.core.mail import send_mail 
 
 class UserAccount(AbstractUser):
@@ -76,20 +76,20 @@ class NonStudent(UserAccount):
 
 
 #Third-party password reset
-@receiver(reset_password_token_created)
-def password_reset_token_created(sender,instance,reset_password_token,*args,**kwargs):
-    email_plaintext_message = "{}?token".format(reverse('password_reset:reset-password-request'),reset_password_token.key)
+# @receiver(reset_password_token_created)
+# def password_reset_token_created(sender,instance,reset_password_token,*args,**kwargs):
+#     email_plaintext_message = "{}?token".format(reverse('password_reset:reset-password-request'),reset_password_token.key)
 
-    send_mail(
-        #title:
-        "Password Reset for ({title})".format(title="Field Simplified"),
-        #message:
-        email_plaintext_message,
-        #from:
-        "nonreply@fieldsimplified.local",
-        #to:
-        [reset_password_token.user.email]
-    )
+#     send_mail(
+#         #title:
+#         "Password Reset for ({title})".format(title="Field Simplified"),
+#         #message:
+#         email_plaintext_message,
+#         #from:
+#         "nonreply@fieldsimplified.local",
+#         #to:
+#         [reset_password_token.user.email]
+#     )
 
 # Copy link which is in email, will be similar to /api/password_reset/?token=339e80fe05e5ca9fc74799213f81a093d1f
 # Now copy that token which comes in email and and post token and password to /api/password_reset/confirm/ api url.
