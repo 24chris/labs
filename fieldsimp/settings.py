@@ -166,11 +166,11 @@ DATABASES = {
     'default': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': BASE_DIR / 'db.sqlite3',
-        'DB_ENGINE': 'django.db.backends.postgresql',
-        'DB_NAME': 'fieldsimplified',
-        'DB_USER':'postgres',
-        'DB_PASSWORD':'24christopher',
-        'DB_HOST':'localhost',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fieldsimplified',
+        'USER':'postgres',
+        'PASSWORD':'24christopher',
+        'HOST':'localhost',
         'PORT':'5432'
     }
 }
