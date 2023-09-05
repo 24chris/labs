@@ -68,6 +68,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://labs-production-6dbb.up.railway.app/']
+CSRF_COOKIE_SECURE=False
 
 
 REST_FRAMEWORK = {
